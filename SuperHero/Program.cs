@@ -10,7 +10,17 @@ namespace SuperHero
     {
         static void Main(string[] args)
         {
+            string name = "PowerHero";
+            int age = 33;
+            string power1 = "fast runner";
+            string power2 = "good swimmer";
+            string power3 = "strong body";
+
+            Console.WriteLine("********************");
+            Console.WriteLine($"Hero: {name}");
+            Console.WriteLine($"Age: {age}");
+            Console.WriteLine($"Superpowers: {power1}, {power2}, {power3}");
+            Console.WriteLine("********************");
         }
     }
 }
-
