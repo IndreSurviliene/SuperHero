@@ -43,7 +43,7 @@ namespace SuperHero
             Console.WriteLine($"Hero earns daily {dailySalary} Eur");
 
             double boughtCookies = Math.Floor(salary / cookieCost); //-- Add boughtCookies calculation
-            double gotCookiesPerHour = Math.Round(boughtCookies / hour); //- How many cookies Hero will get. 5 cookies per hour
+            double gotCookiesPerHour = Math.Floor(boughtCookies / hour); //- How many cookies Hero will get. 5 cookies per hour
             Console.WriteLine($"The hero gets {boughtCookies} cookies");
             Console.WriteLine($"The hero gets {gotCookiesPerHour} cookies per hour");
             
