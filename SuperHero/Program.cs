@@ -10,7 +10,7 @@ namespace SuperHero
     {
         static void Main(string[] args)
         {
-            string name = "PowerHero";
+           /* string name = "PowerHero";
             int age = 33;
             string power1 = "fast runner";
             string power2 = "good swimmer";
@@ -57,6 +57,32 @@ namespace SuperHero
                 Console.WriteLine("The hero is evel and doesn't get his salary");
             }
             //--isEvil or not
+*/
+            char deedGrade = 'A';
+            Console.WriteLine("Enter a letter from A to H");
+            string charString = Console.ReadLine();
+
+            switch (deedGrade)
+            {
+                case 'A':
+                case 'B':
+                    Console.WriteLine("Perfect! You are so brave");
+                    break;
+                case 'C':
+                    Console.WriteLine("Good, but you can do better");
+                    break;
+                case 'D':
+                case 'E':
+                    Console.WriteLine("It is not good! You should choose your bad or good side!");
+                    break;
+                case 'F':
+                case 'G':
+                    Console.WriteLine("Bad, you are true villain");
+                    break;
+            }
+
+                
+
 
 
 
