@@ -16,7 +16,6 @@ namespace SuperHero
 
         public List<Hero>  HeroesInTheDistrict { get; set; }
 
-        
         public District(string title, string city, int districtID, List<Hero> heroesInTheDistrict)
         {
             this.Title = title;
@@ -60,10 +59,18 @@ namespace SuperHero
             }
         }
 
+            public void PrintInfo ()
+            {
+               for (int i = 0; i < HeroesInTheDistrict.Count; i++)
+            {
+                Console.WriteLine($"{i}.{HeroesInTheDistrict[i].Nickname}");
+            }
+            }
+        }
+
 
 
 
     
 
     }
-}
