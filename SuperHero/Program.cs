@@ -10,81 +10,126 @@ namespace SuperHero
     {
         static void Main(string[] args)
         {
+            Heroes Powerhero = new Heroes("John", "Smith", "Powerhero", 33, 1111, "Good swimmer, fast runner, strong body", 10, 1000);
+            Heroes Spiderman = new Heroes("Ben", "Snow", "Spiderman", 27, 2222, "Good climber, fearless, jumps high", 15, 1500);
+            Heroes Batman = new Heroes("Will", "White", "Batman", 45, 3333, "Flies high, fast, furious", 20, 2000);
+            Heroes Superwoman = new Heroes("Ann", "Rose", "Superwoman", 23, 4444, "Knows everything, does everything, can code", 25, 2500);
+            Heroes Supercat = new Heroes("Mary", "Jones", "Supercat", 25, 5555, "Superfast, superstrong, superclever", 30, 3000);
+            Heroes Flash = new Heroes("Mark", "Hilton", "Flash", 21, 6666, "Moves fast, runs fast, think fast", 35, 3500);
+            Heroes Eagle = new Heroes("Rock", "Jakob", "Eagle", 39, 7777, "Flies, hunts, sleep less", 40, 4000);
 
-            Hero Powerhero = new Hero("John", "Smith", "Powerhero", 33, 1111, HeroType.Hero, "Good swimmer, fast runner, strong body", 10);
-            Hero Spiderman = new Hero("Ben", "Snow", "Spiderman", 27, 2222, HeroType.Hero, "Good climber, fearless, jumps high", 15);
-            Hero Batman = new Hero("Will", "White", "Batman", 45, 3333, HeroType.Villain, "Flies high, fast, furious", 20);
-            Hero Superwoman = new Hero("Ann", "Rose", "Superwoman", 23, 4444, HeroType.Hero, "Knows everything, does everything, can code", 25);
-
-            List<Hero> listOfHeroes = new List<Hero>();
+            List<Heroes> listOfHeroes = new List<Heroes>();
             listOfHeroes.Add(Powerhero);
             listOfHeroes.Add(Spiderman);
             listOfHeroes.Add(Batman);
             listOfHeroes.Add(Superwoman);
+            listOfHeroes.Add(Supercat);
+            listOfHeroes.Add(Flash);
+            listOfHeroes.Add(Eagle);
 
-            District antakalnis = new District("Antakalnis", "Vilnius", 1010, listOfHeroes);
+            Villains Angrybird = new Villains("Rob", "Clark", "Angrybird", 22, 111111, 10);
+            Villains Joker = new Villains("Jack", "White", "Joker", 47, 222222, 20);
+            Villains Badass = new Villains("Tom", "Wolf", "Badass", 35, 333333, 30);
 
-            //List<string> superHeroesPowerList = new List<string>();
+            List<Villains> listOfVillains = new List<Villains>();
+            listOfVillains.Add(Angrybird);
+            listOfVillains.Add(Joker);
+            listOfVillains.Add(Badass);
 
-            string[] superHeroNameList = { "Powerhero", "Spiderman", "Batman", "Superwoman" };
+            List<Person> PeopleInTheDistricts = new List<Person>();
+            PeopleInTheDistricts.Add(Powerhero);
+            PeopleInTheDistricts.Add(Spiderman);
+            PeopleInTheDistricts.Add(Batman);
+            PeopleInTheDistricts.Add(Superwoman);
+            PeopleInTheDistricts.Add(Supercat);
+            PeopleInTheDistricts.Add(Flash);
+            PeopleInTheDistricts.Add(Eagle);
+            PeopleInTheDistricts.Add(Angrybird);
+            PeopleInTheDistricts.Add(Joker);
+            PeopleInTheDistricts.Add(Badass);
 
-            double[,] deedTimeInHours2D = { { 10, 20, 30 }, { 15, 25, 35 }, { 20, 30, 40 }, { 25, 35, 45 } };
-            double[] deedTimeInHoursList = new double[superHeroNameList.Length];
-            double[] averageDeedTimeList = new double[superHeroNameList.Length];
+            List<Person> PeopleInAntakalnis = new List<Person>();
+            PeopleInAntakalnis.Add(Powerhero);
+            PeopleInAntakalnis.Add(Spiderman);
+            PeopleInAntakalnis.Add(Batman);
+            PeopleInAntakalnis.Add(Angrybird);
+            PeopleInAntakalnis.Add(Joker);
 
-            for (int d = 0; d < superHeroNameList.Length; d++)
-            {
-                deedTimeInHoursList[d] = deedTimeInHours2D[d, 0] + deedTimeInHours2D[d, 1] + deedTimeInHours2D[d, 2];
-                averageDeedTimeList[d] = deedTimeInHoursList[d] / 3;
-            }
-            double[] salary = { 2000, 3000, 4000, 5000 };
-            double[] dailySalaryList = new double[superHeroNameList.Length];
+            List<Person> PeopleInZirmunai = new List<Person>();
+            PeopleInZirmunai.Add(Superwoman);
+            PeopleInZirmunai.Add(Supercat);
+            PeopleInZirmunai.Add(Flash);
+            PeopleInZirmunai.Add(Eagle);
+            PeopleInZirmunai.Add(Badass);
 
-            for (int s = 0; s < salary.Length; s++)
-            {
-                dailySalaryList[s] = Math.Round(salary[s] / 30, 2);
-            }
-
-            double cookies = 2;
-            double hour = 24;
-            double[] boughtCookiesList = new double[superHeroNameList.Length];
-            double[] gotCookiesPerHourList = new double[superHeroNameList.Length];
-
-            for (int c = 0; c < salary.Length; c++)
-            {
-                boughtCookiesList[c] = Math.Floor(salary[c] / cookies);
-                gotCookiesPerHourList[c] = Math.Floor(boughtCookiesList[c] / hour);
-            }
-
+            Districts Antakalnis = new Districts("Antakalnis", "Vilnius", 1010, PeopleInAntakalnis);
+            Districts Zirmunai = new Districts("Zirmunai", "Vilnius", 2020, PeopleInZirmunai);
+            List<Districts> listOfDistricts = new List<Districts>();
+            
             bool isMenuRunning = true;
             do
             {
                 string menuItems;
 
-                Console.WriteLine($"Welcome to the superhero application!");
+                Console.WriteLine($"Welcome to the superheros and villains application!");
                 Console.WriteLine($"Select what to do:");
-                Console.WriteLine($"1 - Show a list of superheroes");
-                Console.WriteLine($"2 - Show specific hero");
-                Console.WriteLine($"3 - Adding a superhero");
-                Console.WriteLine($"4 - Deleting a superhero");
-                Console.WriteLine($"5 - OOP hero");
-                Console.WriteLine($"6 - Exit");
-                Console.WriteLine($"7 - Information about district");
+                Console.WriteLine($"1 - Show list of people");
+                Console.WriteLine($"1.1 - Show people in a choosen district");
+                Console.WriteLine($"2.1 - Show list of superheroes");
+                Console.WriteLine($"2.2 - Show list of villains");
+                Console.WriteLine($"3 - Show information about the specific hero");
+                Console.WriteLine($"4.1 - Adding a superhero");
+                Console.WriteLine($"4.2 - Adding a villain");
+                Console.WriteLine($"5.1 - Deleting a superhero");
+                Console.WriteLine($"5.2 - Deleting a villain");
+                Console.WriteLine($"6 - OOP superhero");
+                Console.WriteLine($"7 - Information about the districts");
+                Console.WriteLine($"8 - Exit");
 
                 menuItems = Console.ReadLine();
 
                 switch (menuItems)
                 {
                     case "1":
-                        Console.WriteLine("============List=of=superheroes============");
-                        for (int i = 0; i < listOfHeroes.Count; i++)
+                        Console.WriteLine("============List=of=people============");
+                        for (int i = 0; i < PeopleInTheDistricts.Count; i++)
                         {
-                            Console.WriteLine($"{i}. {listOfHeroes[i].Nickname}");
+                          Console.WriteLine($"{i}. {PeopleInTheDistricts[i].Nickname}");
                         }
                         Console.WriteLine("===========================================");
                         break;
-
-                    case "2":
+                    case "1.1":
+                        Console.WriteLine("Choose a district");
+                        Console.WriteLine($"1 - people in Antakalnis");
+                        Console.WriteLine($"2 - people in Zirmunai");
+                        string showMenu = Console.ReadLine();
+                        if (showMenu == "1")
+                        {
+                            Console.WriteLine("********** people in Antakalnis ***************");
+                            Antakalnis.PrintInfo();
+                            Console.WriteLine("********************************************* \n \n");
+                        }
+                        else if (showMenu == "2")
+                        {
+                            Console.WriteLine("********** people in Zirmunai ****************");
+                            Zirmunai.PrintInfo();
+                            Console.WriteLine("********************************************* \n \n");
+                        }
+                        break;
+                    case "2.1":
+                        Console.WriteLine("============List=of=heroes=============");
+                        Antakalnis.PrintListOfHeroes();
+                        Zirmunai.PrintListOfHeroes();
+                        Console.WriteLine("========================================");
+                        break;
+                    case "2.2":
+                        Console.WriteLine("============List=of=villains============");
+                        
+                        Antakalnis.PrintListOfVillains();
+                        Zirmunai.PrintListOfVillains();
+                        Console.WriteLine("========================================");
+                        break; 
+                    case "3":
                         Console.WriteLine($"Please choose a superhero by number");
                         for (int i = 0; i < listOfHeroes.Count; i++)
                         {
@@ -96,57 +141,81 @@ namespace SuperHero
                         Console.WriteLine("Choose what type of info to show");
                         Console.WriteLine($"1 - GENERAL INFO");
                         Console.WriteLine($"2 - FINANCIAL INFO");
-                        string showMenu = Console.ReadLine();
-
-                        if (showMenu == "1")
+                        string showMenu1 = Console.ReadLine();
+                        if (showMenu1 == "1")
                         {
                             Console.WriteLine("*************GENERAL INFO********************");
                             listOfHeroes[chosenNumber].PrintInfo();
                             Console.WriteLine("********************************************* \n \n");
                         }
-                        else if (showMenu == "2")
+                        else if (showMenu1 == "2")
                         {
                             Console.WriteLine("**************FINANCIAL INFO*****************");
-                            Console.WriteLine($"Time spent on deeds:{deedTimeInHoursList[chosenNumber]}");
-                            Console.WriteLine($"Average time spend on deed: {averageDeedTimeList[chosenNumber]} hours");
-                            Console.WriteLine($"Hero earns daily: {dailySalaryList[chosenNumber]} Eur");
-                            Console.WriteLine($"The hero gets {boughtCookiesList[chosenNumber]} cookies");
-                            Console.WriteLine($"The hero gets {gotCookiesPerHourList[chosenNumber]} cookies per hour");
+                                listOfHeroes[chosenNumber].PrintFinancialInformation();
                             Console.WriteLine("********************************************* \n \n");
                         }
                         break;
-                    case "3":
+                    case "4.1":
                         Console.WriteLine("What is the new superhero name?");
                         string superHeroName = Console.ReadLine();
-                        Hero newHero = new Hero();
+                        Heroes newHero = new Heroes();
                         newHero.Nickname = superHeroName;
-                        antakalnis.AddHero(newHero);
-
+                        Antakalnis.AddHero(newHero);
                         break;
-                    case "4":
-                        Console.WriteLine($"Select a hero you want to delete");
-                        antakalnis.PrintInfo();
+                    case "4.2":
+                        Console.WriteLine("What is the new villain name?");
+                        string villainName = Console.ReadLine();
+                        Villains newVillain = new Villains();
+                        newVillain.Nickname = villainName;
+                        Antakalnis.AddVillain(newVillain);
+                        break;
+                    case "5.1":
+                        Console.WriteLine($"Select a superhero you want to delete");
+                        Antakalnis.PrintInfo();
                         int.TryParse(Console.ReadLine(), out int positionToRemove);
-                        antakalnis.RemoveHero(positionToRemove);
-                        Console.WriteLine($"You have deleted {positionToRemove} hero");
+                        Antakalnis.RemoveHero(positionToRemove);
+                        Console.WriteLine($"You have deleted {positionToRemove} superhero");
                         break;
-                    case "5":
-
-                        foreach (Hero hero in listOfHeroes)
+                    case "5.2":
+                        Console.WriteLine($"Select a villain you want to delete");
+                        Antakalnis.PrintInfo();
+                        int.TryParse(Console.ReadLine(), out int positionToRemove2);
+                        Antakalnis.RemoveVillain(positionToRemove2);
+                        Console.WriteLine($"You have deleted {positionToRemove2} villain");
+                        break; 
+                    case "6": 
+                        foreach (Heroes hero in listOfHeroes)
                         {
-                            if (hero.CalculatedLevel() > 1)
+                            if (hero.CalculatedLevelOfDeed() > 1)
                             {
                                 Console.WriteLine($"{hero.Nickname} is higher than level 1");
                             }
                         }
-                        Console.WriteLine($"The average of level of heroes inside {antakalnis.Title} is: {antakalnis.CalculateAvgLevelInDistrict()}");
+                        Console.WriteLine($"Average hero level in {Antakalnis.Title} is: {Antakalnis.CalculateAvgLevelInDistrict()}");
+                        Console.WriteLine($"Average hero level in {Zirmunai.Title} is: {Zirmunai.CalculateAvgLevelInDistrict()}");
+
+                        Console.WriteLine("******************************");
+                        foreach (Villains villain in listOfVillains)
+                        {
+                            if (villain.CalculatedLevelOfCrime() > 1)
+                            {
+                                Console.WriteLine($"{villain.Nickname} is higher than level 1");
+                            }
+                        }
+                        Console.WriteLine("******************************");
+                        Console.WriteLine($"The max crime time in {Antakalnis.Title} is {Antakalnis.CalculateMaxVillainLevelInDistrict()}");
+                        Antakalnis.PrintMaxLevelVillainInDistrict();
+                        Console.WriteLine($"The max crime time in {Zirmunai.Title} is {Zirmunai.CalculateMaxVillainLevelInDistrict()}");
+                        Zirmunai.PrintMaxLevelVillainInDistrict();
+                        break; 
+                    case "7":
+                        Console.WriteLine("Information about the districts:");
+                        Antakalnis.PrintInformationAboutDistrict();
+                        Zirmunai.PrintInformationAboutDistrict();
                         break;
-                    case "6":
+                    case "8":
                         isMenuRunning = false;
                         Console.WriteLine($"Good bye!");
-                        break;
-                    case "7":
-                        antakalnis.PrintInformationAboutDistrict();
                         break;
                     default:
                         Console.WriteLine($"Please choose from the available menu");
@@ -155,11 +224,22 @@ namespace SuperHero
             }
             while (isMenuRunning);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
             /*
             Powerhero.PrintInfo();
             Spiderman.PrintInfo();
-            Batman.PrintInfo();
-            Superwoman.PrintInfo();
 
             LOOP for lists (vietoj Length - COUNT)
             for (int i = 0; i < metropole.Count; i++)
@@ -173,20 +253,6 @@ namespace SuperHero
             foundHero.PrintInfo(); //Prints all info about John
 
             var foundHero2 = metropole.Find(find => find.CalculatedLevel == 1); doesn't work
-
-
-            string[] superHeroAgeList = { "33", "27", "45", "23" };
-            string[] superHeroPowerList = { "Good swimmer, fast runner, strong body", "Good climber, fearless, jumps high", "Flies high, fast, furious", "Knows everything, does everything, can code" };
-            
-            GENERAL INFO
-            Console.WriteLine($"Hero nickname: {listOfHeroes[chosenNumber].Nickname}");
-            Console.WriteLine($"Name and Surname: {listOfHeroes[chosenNumber].Name} {listOfHeroes[chosenNumber].Surname}");
-            Console.WriteLine($"Age: {listOfHeroes[chosenNumber].Age}");
-            Console.WriteLine($"HeroID: {listOfHeroes[chosenNumber].HeroID}");
-            Console.WriteLine($"Superpowers: {listOfHeroes[chosenNumber].Superpowers}");
-            Console.WriteLine($"Hero type: {listOfHeroes[chosenNumber].Type}");
-            Console.WriteLine("********************************** \n \n");
-
 
 
             bool isEvil = false;
